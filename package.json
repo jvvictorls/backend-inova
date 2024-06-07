@@ -1,0 +1,25 @@
+{
+  "name": "backend-login",
+  "version": "1.0.0",
+  "description": "Api de Cadastro de novos usuários",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js",
+    "dev": "nodemon src/index.js",
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern . --ext .js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "express": "^4.19.2",
+    "mysql2": "3.0.0",
+    "sequelize": "6.3.4"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^9.1.0",
+    "sequelize-cli": "6.6.1"
+  }
+}
