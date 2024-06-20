@@ -1,28 +1,12 @@
 const express = require('express');
-const postgres = require('postgres');
-require('dotenv').config();
-console.log(process.env);
-const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID } = process.env;
-
-const sql = postgres({
-  host: PGHOST,
-  database: PGDATABASE,
-  username: PGUSER,
-  password: PGPASSWORD,
-  port: 5432,
-  ssl: 'require',
-});
-
-async function getPgVersion() {
-  const result = await sql`select version()`;
-  console.log(result);
-}
-
-getPgVersion();
+const connection = require('./model/database/connection');
 
 const app = express();
 
 app.use(express.json());
 
-
+app.get('/', async (req, res) => {
+  const findAll = await connection`SELECT * FROM users`
+  return res.status(200).json(findAll);
+})
 module.exports = app;

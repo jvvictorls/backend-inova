@@ -1,5 +1,4 @@
 const app = require('./app');
-const connection = require('./config/connection'); 
 const PORT = 8001;
 
 app.listen(PORT, async() => {
