@@ -1,14 +1,13 @@
+// src/db/connection.js
+
 const mysql = require('mysql2/promise');
 
 const connection = mysql.createPool({
-  host: 'db',
-  port: 5432,
-  user: 'postgres',
-  password: 'password',
-  database: 'secti_db',
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
+  host: process.env.MYSQL_HOST || 'database',
+  port: process.env.MYSQL_PORT || 3306,
+  user: process.env.MYSQL_USER || 'root',
+  password: process.env.MYSQL_PASSWORD || 'root',
+  database: process.env.DB_NAME || 'secti_db',
 });
 
 module.exports = connection;
