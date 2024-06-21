@@ -6,8 +6,8 @@ async function findAll() {
 }
 
 async function findByEmail(email) {
-  const findUser = await connection`SELECT * FROM users WHERE email = ${email}`;
-  return findUser;
+  const result = await connection`SELECT * FROM users WHERE email = ${email}`;
+  return result;
 }
 
 module.exports = {

@@ -7,8 +7,9 @@ const findAllUsers = async (_req, res) => {
 
 const  findByEmail = async (req, res) => {
   try {
-  const { email } = req.params;
+  const { email } = req.body;
   const user = await userService.findByEmail(email);
+  console.log(user);
   if (!user) return res.status(404).json({ message: 'Usuário não encontrado' }); //status 404 é o padrão para requisições que não encontram o que foi solicitado
   return res.status(200).json(user);
   } catch (error) {

@@ -8,6 +8,7 @@ async function findAllUsers() {
 async function findByEmail(email) {
   const user = await UserModel.findByEmail(email);
   if (!user) return null;
+  return user;
 }
 
 module.exports = {
