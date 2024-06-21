@@ -1,12 +1,11 @@
 const express = require('express');
 const connection = require('./model/database/connection');
+const routes = require('./routes');
 
 const app = express();
 
-app.use(express.json());
+app.use(express.json()); //para poder a aplicação receber dados via fornmulário.
 
-app.get('/', async (req, res) => {
-  const findAll = await connection`SELECT * FROM users`
-  return res.status(200).json(findAll);
-})
+app.use(routes);
+
 module.exports = app;
