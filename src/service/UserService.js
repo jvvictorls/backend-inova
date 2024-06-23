@@ -11,7 +11,15 @@ async function findByEmail(email) {
   return user;
 }
 
+const login = async (email, password) => {
+  const token = await UserModel.login(email, password);
+  if (!token) return null;
+  const removeSensitiveData = token.map(({ password, ...rest }) => rest);
+  return removeSensitiveData;
+};
+
 module.exports = {
   findAllUsers,
   findByEmail,
+  login,
 };

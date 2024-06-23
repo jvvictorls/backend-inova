@@ -4,7 +4,7 @@ const UserController = require('../controller/UserController');
 
 router.get('/', UserController.findAllUsers);
 
-router.post('/login', UserController.findByEmail);
+router.post('/login', UserController.login);
 
 
 module.exports = router;

@@ -10,7 +10,13 @@ async function findByEmail(email) {
   return result;
 }
 
+async function login(email, password) {
+  const result = await connection`SELECT * FROM users WHERE email = ${email} AND password = ${password}`;
+  return result;
+}
+
 module.exports = {
   findAll,
   findByEmail,
+  login,
 }
