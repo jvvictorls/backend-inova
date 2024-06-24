@@ -18,8 +18,14 @@ const login = async (email, password) => {
   return token;
 };
 
+const create = async (name, cpf, email, password, address, interest) => {
+  const result = await UserModel.create(name, cpf, email, password, address, interest);
+  return result;
+}
+
 module.exports = {
   findAllUsers,
   findByEmail,
   login,
+  create,
 };

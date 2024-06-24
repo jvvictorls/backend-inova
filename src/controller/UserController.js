@@ -17,6 +17,12 @@ const  findByEmail = async (req, res) => {
   }
 }
 
+const create = async (req, res) => {
+  const { name, email, cpf, password, address, interest } = req.body;
+  const user = await userService.create(name, cpf, email, password, address, interest);
+  return res.status(201).json(user); //status 201 é o padrão para requisições que foram criadas com sucesso
+}
+
 const login = async (req, res) => {
   const { email, password } = req.body;
   const token = await userService.login(email, password);
@@ -28,4 +34,5 @@ module.exports = {
   findAllUsers,
   findByEmail,
   login,
+  create,
 };
