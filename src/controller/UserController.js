@@ -21,8 +21,9 @@ const login = async (req, res) => {
   const { email, password } = req.body;
   const token = await userService.login(email, password);
   if (!token) return res.status(400).json({ message: 'Usuário ou senha incorretos' }); //status 400 é o padrão para requisições mal sucedidas
-  return res.status(200).json({ token });
+  return res.status(200).json(token);
 }
+
 module.exports = {
   findAllUsers,
   findByEmail,

@@ -11,8 +11,8 @@ async function findByEmail(email) {
 }
 
 async function login(email, password) {
-  const result = await connection`SELECT * FROM users WHERE email = ${email} AND password = ${password}`;
-  return result;
+  const [token] = await connection`SELECT * FROM users WHERE email = ${email} AND password = ${password}`;
+  return token;
 }
 
 module.exports = {

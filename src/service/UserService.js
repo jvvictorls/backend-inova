@@ -14,8 +14,8 @@ async function findByEmail(email) {
 const login = async (email, password) => {
   const token = await UserModel.login(email, password);
   if (token.length === 0) return null;
-  const removeSensitiveData = token.map(({ password, ...rest }) => rest);
-  return removeSensitiveData;
+  const removePassword = delete token.password;
+  return token;
 };
 
 module.exports = {
