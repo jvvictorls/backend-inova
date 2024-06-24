@@ -19,6 +19,8 @@ const  findByEmail = async (req, res) => {
 
 const create = async (req, res) => {
   const { name, email, cpf, password, address, interest } = req.body;
+  const validateEmail = await userService.findByEmail(email);
+  if (validateEmail) return res.status(409).json({ message: 'Email já cadastrado' }); //status 409 é o padrão para requisições que já foram feitas
   const user = await userService.create(name, cpf, email, password, address, interest);
   return res.status(201).json(user); //status 201 é o padrão para requisições que foram criadas com sucesso
 }
