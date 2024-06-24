@@ -20,6 +20,7 @@ const login = async (email, password) => {
 
 const create = async (name, cpf, email, password, address, interest) => {
   const result = await UserModel.create(name, cpf, email, password, address, interest);
+  const removePasswordAndCpf = delete result.password && delete result.cpf;
   return result;
 }
 
