@@ -6,7 +6,7 @@ const routes = require('./routes');
 const app = express();
 
 const corsOptions = {
-  origin: 'https://teste-omhy.vercel.app', // or '*' to allow all origins
+  origin: '*', // or '*' to allow all origins
   optionsSuccessStatus: 200,
 };
 
