@@ -14,13 +14,13 @@ async function findByEmail(email) {
 const login = async (email, password) => {
   const token = await UserModel.login(email, password);
   if (token.length === 0) return null;
-  const removePassword = delete token.password;
+  delete token.password;
   return token;
 };
 
 const create = async (name, cpf, email, password, address, interest) => {
   const result = await UserModel.create(name, cpf, email, password, address, interest);
-  const removePasswordAndCpf = delete result.password && delete result.cpf;
+  delete result.password && delete result.cpf;
   return result;
 }
 
