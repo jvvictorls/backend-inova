@@ -5,7 +5,12 @@ const routes = require('./routes');
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://teste-omhy.vercel.app', // or '*' to allow all origins
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json()); //para poder a aplicação receber dados via fornmulário.
 
