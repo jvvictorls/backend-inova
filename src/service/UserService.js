@@ -13,7 +13,7 @@ async function findByEmail(email) {
 
 const login = async (email, password) => {
   const token = await UserModel.login(email, password);
-  if (token.length === 0) return null;
+  if (!token) return null;
   delete token.password;
   return token;
 };
